@@ -139,7 +139,7 @@ class ExitSafePopen(Popen):
             # Creates and runs child process
             super().__init__(command, **kwargs, creationflags=CREATE_SUSPENDED)
             Popen._execute_child = self._original_execute_child
-            # Opens the process with teh Windows api to get the process' handle
+            # Opens the process with the Windows api to get the process' handle
             with suppress(Exception):
                 self._process_handle = OpenProcess(self._permissions, False, self.pid)
                 AssignProcessToJobObject(self._job_handle, self._process_handle)
