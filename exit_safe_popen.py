@@ -156,10 +156,8 @@ def _execute_child(self, args, executable, preexec_fn, close_fds,
                            p2cread, p2cwrite,
                            c2pread, c2pwrite,
                            errread, errwrite,
-                           unused_restore_signals,
-                           unused_gid, unused_gids, unused_uid,
-                           unused_umask,
-                           unused_start_new_session):
+                           *unused_args,
+                           **kwargs):
             """
             Used to monkeypatch a custom implementation of subprocess.Popen's execute program (MS Windows version)
             that adds tid as an attribute (Used to resume the process' halted thread)
